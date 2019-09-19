@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Burger Queen</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 100px;
+        }
+        #devoured{
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        #not_devoured {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        img{
+            align: center;
+            margin-bottom: 40px;
+            }
+        li{
+            border-radius: 3px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 2px 0 0 -30px;
+            text-align: left;
+        }
+        button{
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+        #adding-form {
+            border: 1px solid black;
+            margin-top: 80px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Burger Queen! </h1>
+    {{!-- <img src="../public/assets/img/burger.jpg"> --}}
+        <img src="https://png.pngtree.com/element_pic/17/07/26/eb63d3b8ae4d2a1de45ba95e6d5b53ae.jpg
+">
+    {{!-- burgers name display  --}}
+    <div class="container">
+
+        {{!-- burgers added  --}}
+        <div id="not_devoured">
+            <h4>New Burgers</h4>
+            
+            {{#each burgers}}
+                {{#unless devoured}}
+                  {{> burgers/burger-block devour=false}}
+                {{/unless}}
+            {{/each}}
+            
+        </div>
+
+        {{!-- burgers devoured  --}}
+        <div id="devoured">
+        <h4>Classic Burgers</h4>
+       
+            {{#each burgers}}
+                {{#if devoured}}
+                    {{> burgers/burger-block devour=true}}
+                {{/if}}
+            {{/each}}
+  </div>
+        </div>
+
+
+<div id="adding-form">
+    <h4>Adding new Burgers!</h4>
+    {{!-- form  --}}
+  <form action="/api/burgers" method="POST" id="create-form">
+  <label for="burger">Add your favorite Burger here:</label>
+  	<input type="text" name="burger" id='adding_burger'></input>
+
+  	<button type="submit" id="submit">Add My Burger</button>
+  </form>
+</div>
+
+</body>
+</html>
