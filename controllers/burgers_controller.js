@@ -18,9 +18,15 @@ app.get("/", function(req, res) {
 });
 
 app.put("/api/burgers/:id", function(req, res) {
-    orm.updateOne("burgers", "burger_name, devoured", //devoured true/false
-    )
-    // console.log(res)
+  var set = "id = " + req.body.devoured;
+  var where = req.body;
+  console.log(set);
+  console.log(where);
+  orm.updateOne(set, where, function(dbBurgers) {
+
+      res.redirect("/");
+    })
+
 })
 
 };

@@ -21,10 +21,10 @@ var orm = {
         })
         console.log(query.sql);
     },
-    updateOne: function(tableName, columns, where, cb) {
-        var queryString = "UPDATE ?? SET ? WHERE ?";
-        connection.query(queryString, [tableName, columns, where], function(err, res) {
-            if (err)
+    updateOne: function(set, where, cb) {
+        var queryString = "UPDATE burgers SET ? WHERE ?";
+        connection.query(queryString, [set, where], function(err, res) {
+            if (err) 
                 throw err;
             // console.log(res)
             cb(res);
