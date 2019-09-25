@@ -1,138 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Burger Queen</title>
-    <style>
-        body{
-            background-color: antiquewhite;
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-            margin-top: 80px;
-            margin-bottom: 100px;
-        }
-        h1{
-            font-family: 'Neucha', cursive;
-            font-size: 60px;
-            font-weight: bolder;
-            letter-spacing: 3px;
-        }
-        #devoured{
-            display: inline-block;
-            float: right;
-            margin: 20px 80px 40px 80px;
-        }
-        #not_devoured {
-            display: inline-block;
-            margin: 20px 80px 40px 80px;
-        }
-        h4{
-            margin-bottom: 50px;
-            font-family: 'Neucha', cursive;
-            font-size: 30px;
-        }
-        img{
-            align: center;
-            margin-bottom: 40px;
-            }
-        li{
-            border-radius: 3px;
-            padding: 5px;
-            margin: 10px 0 0 -20px;
-            text-align: left;
-            font-size: 24px;
-            list-style-type: none;
-            font-family: 'Neucha';
-            letter-spacing: 1px;
-        }
-        #adding-form {
-            margin-top: 10px;
-            width: 400px;
-            display: inline-block;
-        }
-        #adding_burger{
-            width: 300px;
-            height: 50px;
-            display: inline-block;
-            margin-bottom: 10px;
-            border: none;
-            background-color: transparent;
-            border-bottom: 2px solid rgb(83, 182, 193);
-           outline: none; 
-           font-size: 22px;
-        }
-        #devoured-class{
-            padding: 1px 8px;
-            float: right;
-            margin-left:25px;
-        }
-        #X{
-            width: 1px;
-        }
-        hr{
-            width: 80%;
-        }
-        #create-form{
-            margin-top: -25px;
-        }
-        #submit-burger{
-            width: 200px;
-            letter-spacing: 2px;
-            margin-top: 5px;
-        }
-        .fas{
-            margin-right: 5spx;
-        }
+<h1>Burger Queen!</h1>
 
-    </style>
-</head>
-<body>
+<img src="https://png.pngtree.com/element_pic/17/07/26/eb63d3b8ae4d2a1de45ba95e6d5b53ae.jpg">
+<div class="container">
 
-    <h1>Eat Da Burger! </h1>
-    {{!-- <img src="../public/assets/img/burger.jpg"> --}}
-        <img src="https://png.pngtree.com/element_pic/17/07/26/eb63d3b8ae4d2a1de45ba95e6d5b53ae.jpg">
-    {{!-- burgers name display  --}}
-    <div class="container">
+    <div id="devoured">
+        <h2>Burgers Devoured!</h2>
+            <ul>
+                {{#each burger}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                    {{/unless}}
+                {{/each}}
+            </ul>
+    </div>
 
-        {{!-- burgers added  --}}
-        <div id="not_devoured" >
-            <h4>New Burgers</h4>
-            
-            {{#each burgers}}
-                {{#unless devoured}}
-                  {{> burgers/burger-block devour=false}}
-                {{/unless}}
-            {{/each}}
-            
-        </div>
 
-        {{!-- burgers devoured  --}}
-        <div id="devoured" >
-        <h4>Classic Burgers</h4>
-       
-            {{#each burgers}}
-                {{#if devoured}}
-                    {{> burgers/burger-block devour=true}}
-                {{/if}}
-            {{/each}}
-  </div>
-        </div>
+    <div id="not_devoured" >
+        <h2>The New Burgers!</h2>
 
-<hr>
-<div id="adding-form">
-    <h4>Adding new Burgers!</h4>
-    {{!-- form  --}}
-  <form action="/api/burgers" method="POST" id="create-form">
-  <label for="burger">Add your favorite Burger below:</label>
-  <br>
-  	<input type="text" name="burger" id='adding_burger'></input>
+            <ul>
+                {{#each burger}}
+                    {{#if devoured}}
+                        {{> burgers/burger-block devoured=false}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+    </div>
 
-  	<button type="submit" class="btn btn-info" id="submit-burger">Add My Burger</button>
-  </form>
 </div>
 
-</body>
-</html>
+<hr>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="bur">Burger Name:</label>
+        <input type="text" id="bur" name="name" id="adding_burger">
+    </div>
+
+    <div class="form-group">
+        <label for="devoured" >Devoured?</label><br>
+        <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+        <input type="radio" name="devoured" value="0"> Not Devoured
+    </div>
+
+    <button type="submit">Add Burger</button>
+</form>

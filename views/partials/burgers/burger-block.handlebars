@@ -1,9 +1,9 @@
-    <li> <i class='fas fa-caret-right'></i>
-        {{burger_name}}
-        <button class="btn btn-info" id="devoured-class" class="btn btn-info" id="X" data-id="{{devoured}}" data-devoured="{{1}}">
-		{{#if 1}}Devoured{{else}}Devour it!{{/if}}
-	</button> 
+<li>
+	{{name}}
 
-	
-    </li>
- 
+	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
+		{{#if devoured}}Devoured{{else}}New Burger!{{/if}}
+	</button>
+
+	<button class="change-devoured" class="delete-burger" id="button" data-id="{{this.id}}">X</button>
+</li>
