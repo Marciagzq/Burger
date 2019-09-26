@@ -7,11 +7,13 @@ body{
     margin-bottom: 100px;
 }
 img{
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    display: block;
+    margin: auto;
 }
 h1{
     font-family: 'Neucha', cursive;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bolder;
     letter-spacing: 3px;
 }
@@ -20,27 +22,36 @@ h2{
     font-family: 'Neucha', cursive;
     font-size: 30px;
 }
-#adding_burger{
+#adding-burger{
     width: 300px;
     height: 50px;
     display: inline-block;
     margin-bottom: 10px;
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid rgb(83, 182, 193);
+    border-bottom: 2px solid  #599bb3;
     outline: none; 
-   font-size: 22px;
+    font-size: 22px;
 }
 hr{
-    width: 80%;
+    width: 50%;
+    margin-bottom: 40px;
+    border: 0.5px solid  #599bb3;
+}
+.container{
+    display: inline-flex;
 }
 #devoured{
     display: inline-block;
-    margin: 20px 80px 40px 80px;
+    margin: 20px 50px 40px 0px;
 }
 #not_devoured {
     display: inline-block;
-    margin: 20px 80px 40px 80px;
+    margin: 20px 50px 40px 0px;
+}
+.change-devoured{
+    float: right;
+    margin-left:15px;
 }
 li {
     padding: 5px;
@@ -48,69 +59,69 @@ li {
     background: #faebd7;
     border-radius: 3px;
     padding: 5px;
-    margin: 10px 0 0 -20px;
+    margin: 20px 0 0 -20px;
     text-align: left;
     font-size: 24px;
     list-style-type: none;
     font-family: 'Neucha';
     letter-spacing: 1px;
 }
-  .label {
+.label {
     font-weight: bold;
 } 
-  .create-update-form {
+.create-update-form {
     padding: 5px;
     margin: 5px;
-
 }
-  .form-group {
-    margin-bottom: 5px;
-    margin-top: 10px;
+.form-group {
+    margin-top: 15px;
+    margin-bottom: 20px;
     display: block;
-}
-/* button{
+    font-size: 20px;
     
-} */
-.change-devoured{
-    float: right;
-    margin-left:25px;
 }
-
-/*  
-    #adding-form {
-        margin-top: 10px;
-        width: 400px;
-        display: inline-block;
-    }
-    #adding_burger{
-        width: 300px;
-        height: 50px;
-        display: inline-block;
-        margin-bottom: 10px;
-        border: none;
-        background-color: transparent;
-        border-bottom: 2px solid rgb(83, 182, 193);
-       outline: none; 
-       font-size: 22px;
-    }
-    #devoured-class{
-        padding: 1px 8px;
-        float: right;
-        margin-left:25px;
-    }
-    #X{
-        width: 1px;
-    }
-
-    #create-form{
-        margin-top: -25px;
-    }
-    #submit{
-        width: 200px;
-        letter-spacing: 2px;
-        margin-top: 5px;
-    }
-
-
-
-  */
+#burger-name{
+    font-size: 28px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+    color:  #284753;
+}
+#bur{
+    font-size: 18px;
+    margin-bottom: 45px;
+    width: 300px;
+    height: 50px;
+    display: inline-block;
+    margin-bottom: 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid  #599bb3;
+    outline: none; 
+    font-size: 22px;
+}
+button{
+    background-color:#599bb3;
+	color:#ffffff;
+	padding:9px 10px;
+    text-decoration:none;
+    border-style: none;
+    border-radius: 20px;
+}
+button:hover{
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+	background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+	background-color:#408c99;
+}
+#button{
+    width: 25px;
+    text-align: center;
+    float: right;
+    padding: 8px;
+    margin-left: 30px;
+}
