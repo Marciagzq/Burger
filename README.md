@@ -19,7 +19,6 @@ Before trying to run this app you must have **install the following npm packages
 
 To learn more about this packages, click [here!](https://www.npmjs.com/)
 
-
 ##### How do I run it?
 The user should run this code on the my local server? First run "node server.js" on the terminal, and then use the following urls:
 
